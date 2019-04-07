@@ -1,8 +1,11 @@
 package vn.edu.tdc.lamdep;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,17 +23,25 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        initToolBar();
+
+
+        // Hiển thị giao diện màn hình trang chủ
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        Fragment fragment = new Home();
+        ft.replace(R.id.content_main, fragment);
+        ft.commit();
+
+
+
+    }
+
+    private void initToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,6 +51,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -79,20 +91,75 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        Fragment fragment;
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        switch (id) {
 
-        } else if (id == R.id.nav_slideshow) {
+            case R.id.nav_home:
+                fragment = new Home();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+                break;
 
-        } else if (id == R.id.nav_manage) {
+            case R.id.nav_sanpham:
+                fragment = new SanPham();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+                break;
 
-        } else if (id == R.id.nav_share) {
+            case R.id.nav_dadep:
+                fragment = new DaDep();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+                break;
 
-        } else if (id == R.id.nav_send) {
+            case R.id.nav_makeup:
+                fragment = new MakeUp();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+                break;
+
+            case R.id.nav_tocdep:
+                fragment = new TocDep();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+                break;
+
+            case R.id.nav_macdep:
+                fragment = new MacDep();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+                break;
+
+            case R.id.nav_dangdep:
+                fragment = new DangDep();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+                break;
+
+            case R.id.nav_tapluyen:
+                fragment = new TapLuyen();
+                ft.replace(R.id.content_main, fragment);
+                ft.commit();
+                break;
+
+            case R.id.nav_lichsu:
+                break;
+
+            case R.id.nav_danhgiaungdung:
+                break;
+
+            case R.id.nav_dangnhap:
+                Intent intent = new Intent(this, DangNhap.class);
+                startActivity(intent);
+                break;
+
+
 
         }
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
