@@ -1,5 +1,6 @@
 package vn.edu.tdc.lamdep;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,8 +17,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import vn.edu.tdc.lamdep.Model.danhMucDaDep;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,7 +144,7 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.nav_tapluyen:
                 fragment = new TapLuyen();
-                ft.replace(R.id.content_main, fragment);
+                ft.add(R.id.content_main, fragment);
                 ft.commit();
                 break;
 
