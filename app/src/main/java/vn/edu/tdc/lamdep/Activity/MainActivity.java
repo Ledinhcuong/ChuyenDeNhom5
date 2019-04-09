@@ -1,5 +1,6 @@
 package vn.edu.tdc.lamdep.Activity;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,9 +16,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import vn.edu.tdc.lamdep.R;
+import vn.edu.tdc.lamdep.Model.danhMucDaDep;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
