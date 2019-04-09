@@ -1,4 +1,4 @@
-package vn.edu.tdc.lamdep;
+package vn.edu.tdc.lamdep.Activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,18 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MacDep extends Fragment {
+import vn.edu.tdc.lamdep.R;
+
+public class TocDep extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getActivity().setTitle("Mặc đẹp");
+        getActivity().setTitle("Tóc đẹp");
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return  inflater.inflate(R.layout.macdep_layout, container, false);
+        return  inflater.inflate(R.layout.tocdep_layout, container, false);
     }
 }
