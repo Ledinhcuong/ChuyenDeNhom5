@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity
                 break;
 
             case R.id.nav_dangnhap:
-                Intent intent = new Intent(this, DangNhap.class);
+                Intent intent = new Intent(this, OutfitThoiTrang.class);
                 startActivity(intent);
                 break;
 
